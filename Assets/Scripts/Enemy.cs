@@ -1,37 +1,24 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMain : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject enemy;
     private Vector2 mousePos;
     [SerializeField] private Vector2 minClamp;
     [SerializeField] private Vector2 maxClamp;
-    private bool canMove;
 
 
-   
     void Update()
     {
         if (Input.GetMouseButton(0))
         {
-            canMove = true;
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             mousePos.x = Mathf.Clamp(mousePos.x, minClamp.x, maxClamp.x);
             mousePos.y = Mathf.Clamp(mousePos.y, minClamp.y, maxClamp.y);
-            player.gameObject.transform.position = mousePos;
-           
+            enemy.gameObject.transform.position = mousePos;
         }
-        else
-        {
-            canMove = false;
-        }
-        if (canMove)
-        {
-            transform.position = mousePos;
-        }
-
-        
     }
 }
