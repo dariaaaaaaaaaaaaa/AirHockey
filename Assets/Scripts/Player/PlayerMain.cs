@@ -8,7 +8,7 @@ namespace Player
     {
         [SerializeField] private Camera camera;
         [SerializeField] private GameObject player;
-        [SerializeField] private TouchArea touchArea;
+        [SerializeField] private TouchAreaHandler touchArea;
         [SerializeField] private float hitForce = 6;
         [SerializeField] private float hitBallTimeOffset = 0.1f;
         
@@ -23,7 +23,7 @@ namespace Player
         {
             if (touchArea.IsTouched)
             {
-                var mousePos = touchArea.GetCurrentTouchPos();
+                var mousePos = touchArea.CurrentPosition;
 
                 mousePos = touchArea.Bounds.Clamp(mousePos);
                 player.gameObject.transform.position = mousePos;
@@ -37,7 +37,7 @@ namespace Player
                 var ballRB = other.collider.GetComponent<Rigidbody2D>();
                 var direction = ballRB.position - player.GetComponent<Rigidbody2D>().position;
                 direction.Normalize();
-                ballRB.AddForce(direction * touchArea.CurrentTouch.deltaPosition.magnitude * hitForce);
+                ballRB.AddForce(direction * touchArea.CurrentFinger.ScaledDelta * hitForce); //* touchArea.CurrentTouch.deltaPosition.magnitude
                 _lastHitTime = Time.time;
             }
         }

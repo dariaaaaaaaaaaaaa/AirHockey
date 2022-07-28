@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4677636617819552082}
-  - component: {fileID: 4677636617819552084}
+  - component: {fileID: 5685868975489833574}
   - component: {fileID: 4677636617819552083}
   m_Layer: 0
   m_Name: Components
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 4677636619860351761}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4677636617819552084
+--- !u!114 &5685868975489833574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4677636617819552085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98231881bb4d46d2bd11bb89ba313a18, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e5d6d4da6ba47d2b7bd3e5033ca27a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  mainCam: {fileID: 0}
   bounds: {fileID: 4677636617819552083}
 --- !u!114 &4677636617819552083
 MonoBehaviour:
@@ -323,6 +323,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
   player: {fileID: 4677636619860351764}
-  touchArea: {fileID: 4677636617819552084}
+  touchArea: {fileID: 5685868975489833574}
   hitForce: 12
   hitBallTimeOffset: 0.1
